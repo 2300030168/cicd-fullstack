@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // Tomcat is running on 8082 with WAR name = calc
-export const BASEURL = "http://localhost:8082/calc";
+export const BASEURL = "http://localhost:8080/calc";
 // export const BASEURL = "http://localhost:2025/";
 
 export const callApi = async (method, endpoint) => {
