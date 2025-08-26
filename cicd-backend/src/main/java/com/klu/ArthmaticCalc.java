@@ -22,15 +22,15 @@ public class ArthmaticCalc {
 	 
 	 @GetMapping("/mul/{A}/{B}")
 	    public String mul(@PathVariable("A") int a, @PathVariable("B") int b) {
-	        return "Multiplication = " + (a * b);
+	        return "" + (a * b);
 	    }
 	 @GetMapping("/div/{A}/{B}")
 	    public String div(@PathVariable("A") int a, @PathVariable("B") int b) {
-	        return "Divition = " + (a / b);
+	        return "" + (a / b);
 	    }
 	 @GetMapping("/mod/{A}/{B}")
 	    public String mod(@PathVariable("A") int a, @PathVariable("B") int b) {
-	        return "Mod = " + (a % b);
+	        return "" + (a % b);
 	    }
 
 }

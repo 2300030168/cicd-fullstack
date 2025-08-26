@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { callApi } from "./api";
-import "./App.css";   // Import external CSS
+import "./App.css";
 
 function App() {
   const [A, setA] = useState("");
@@ -12,39 +12,39 @@ function App() {
       const res = await callApi("GET", `${operation}/${A}/${B}`);
       setResult(res);
     } catch {
-      setResult("Error calling API");
+      setResult("Error");
     }
   };
 
   return (
-    <div className="container">
-      <h1 className="title">Arithmetic Calculator</h1>
+    <div className="calc-container">
+      <h1 className="calc-title">Arithmetic Calculator</h1>
 
-      <div className="input-box">
+      <div className="calc-display">
+        <p>{result !== "" ? result : "0"}</p>
+      </div>
+
+      <div className="calc-inputs">
         <input
           type="number"
-          placeholder="Enter A"
+          placeholder="A value"
           value={A}
           onChange={(e) => setA(e.target.value)}
         />
         <input
           type="number"
-          placeholder="Enter B"
+          placeholder="B value"
           value={B}
           onChange={(e) => setB(e.target.value)}
         />
       </div>
 
-      <div className="button-box">
-        <button onClick={() => handleOperation("add")}>Add</button>
-        <button onClick={() => handleOperation("sub")}>Sub</button>
-        <button onClick={() => handleOperation("mul")}>Mul</button>
-        <button onClick={() => handleOperation("div")}>Div</button>
-        <button onClick={() => handleOperation("mod")}>Mod</button>
-      </div>
-
-      <div className="result">
-        <h2>Result: {result}</h2>
+      <div className="calc-buttons">
+        <button onClick={() => handleOperation("add")}>+</button>
+        <button onClick={() => handleOperation("sub")}>−</button>
+        <button onClick={() => handleOperation("mul")}>×</button>
+        <button onClick={() => handleOperation("div")}>÷</button>
+        <button onClick={() => handleOperation("mod")}>%</button>
       </div>
     </div>
   );
